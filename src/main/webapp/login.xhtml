@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title><ui:insert name="pageTitle">Login no Sistema</ui:insert></title>
+        <style type="text/css">
+            body {
+                background-image: url(img/gplaypattern.png);
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-size: 13px;
+                background-color: #111111;
+            }
+
+            .header {
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-size: 12px;
+            }
+
+            #logo {
+                width: 100%;
+                height: 110px;
+                padding: 0px 0px 0px 0px;
+                padding-bottom: 10px;
+                background-image: url(img/logoIM---------.png);
+                background-repeat: no-repeat;
+                background-position: left top;
+                background-size:220px 100px; 
+            }
+
+            .bottom {
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-size: 9px;
+                text-align: center;
+                vertical-align: middle;
+                color: #8E969D;
+            }
+
+            .imagemLoginCadeado{ 
+                width: 16px; 
+                height: 16px;
+                background-image: url(/SysbufaloUFRA/img/cadeado_login.png)!important;
+            }
+
+            @media screen {
+                body>div#footer {
+                    position: fixed;
+                }
+            }
+
+            * html body {
+                overflow: hidden;
+            }
+
+            * html div#content {
+                height: 100%;
+                overflow: auto;
+            }
+
+            div#footer {
+                position: absolute;
+                bottom: 0;
+                left: 25%;
+                width: 100%;
+                height: footer-50px;
+                min-height: 8%;
+            }
+        </style>
+    </h:head>
+
+    <h:body style="padding: 0px 0px 0px 0px;">
+
+        <link href="/pages/estilos.css" rel="stylesheet" type="text/css" />
+        <h:panelGrid columns="1" width="100%">
+            <div>
+                <div id="logo">
+                    <p></p>
+                </div>
+                <f:view>
+                    <h:form>
+
+                        <p:growl />
+                        <p:dialog header="Login do Sistema" modal="true" widgetVar="dlg"
+                                  visible="true" closable="false" draggable="false"
+                                  resizable="false"
+                                  >
+
+                            <p:growl id="growl" globalOnly="true" showDetail="true"
+                                     life="5000" autoUpdate="true" />
+                            <h:panelGrid columns="2" cellpadding="2">
+                                <h:outputLabel for="j_username" value="Usuário:" />
+                                <p:inputText id="j_username" required="true"
+                                             placeholder="Email ou Celular"
+                                             value="#{usuarioBean.usuario.email}"/>
+                                <h:outputLabel for="j_password" value="Senha:" />
+                                <p:password id="j_password" required="true"
+                                            value="#{usuarioBean.usuario.senha}" />
+                            </h:panelGrid>
+                            <f:facet name="footer">
+                                <p:commandButton value="Entrar" process="@all" 
+                                                 icon="imagemLoginCadeado"
+                                                 actionListener="#{usuarioBean.Login}" update="j_password">
+                                </p:commandButton>
+                            </f:facet>
+                        </p:dialog>
+                    </h:form>
+                </f:view>
+                <p:ajaxStatus onstart="PF('waitDialog').show();" onsuccess="PF('waitDialog').hide();"/>
+                <p:dialog header="Aguarde..." widgetVar="waitDialog"
+                          draggable="false" resizable="false" closable="false" modal="true"
+                          width="170">
+                    <center>
+                        <p:graphicImage value="img/indeterminate-progress-bar.gif"
+                                        width="140" height="24" />
+                    </center>
+                </p:dialog>
+            </div>
+            <div>
+                <ui:insert name="body">
+                </ui:insert>
+            </div>
+        </h:panelGrid>
+
+    </h:body>
+
+
+</html>

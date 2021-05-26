@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+         
+    <h:form prependId="false">
+        <p:growl id="growlPeso" globalOnly="true" showDetail="true" life="5000"
+                autoUpdate="true" />
+        <p:dataTable id="pesos" var="peso" emptyMessage="Nenhum Registro Encontrado!"
+                     value="#{animalBean.animal.pesoAnimalList}" paginator="true" rows="10"
+                     selection="#{animalBean.pesoSelecionado}"
+                    selectionMode="single" paginatorPosition="bottom" 
+                    rowKey="#{peso.id}">
+
+                <p:column headerText="Id" style="text-align: center">  
+                            #{peso.id}  
+                        </p:column>
+ 
+                <p:column headerText="Peso" style="text-align: center">  
+                            #{peso.peso}  
+                        </p:column>
+                
+                <p:column headerText="Data" style="text-align: center">  
+                            <h:outputText value="#{peso.data}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                        </p:column>
+
+                <f:facet name="footer">
+                        <p:commandButton value="Novo Peso" icon="imagemAdicionar" update="@form" action="#{animalBean.prepararNovoPeso}"/> | 
+                        <p:commandButton value="Deletar Peso" oncomplete="PF('confirmationPeso').show()" icon="imagemExcluir"/> 
+                </f:facet>
+        </p:dataTable>
+        
+        <div>
+                <p:confirmDialog message="Excluir?" width="200"
+                    header="Confirme!" severity="alert" widgetVar="confirmationPeso">
+                    <p:commandButton value="Sim" icon="fa fa-fw fa-check"
+                                     update="growlPeso" ajax="false" action="#{animalBean.excluirPeso}"
+                            oncomplete="PF('confirmationPeso').hide()" />
+                    <p:commandButton value="Não" 
+                                     icon="fa fa-fw fa-times"
+                            onclick="PF('confirmationPeso').hide()" type="button" />
+                </p:confirmDialog>
+        </div>
+        
+        <p:blockUI block="pesos" trigger="pesos">  
+            CARREGANDO<br />  
+            <p:graphicImage value="../../img/ajax-loader.gif"/>  
+        </p:blockUI>  
+</h:form>
+</html>

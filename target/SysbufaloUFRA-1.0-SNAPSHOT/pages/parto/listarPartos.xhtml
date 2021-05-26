@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="FormParto" prependId="false">
+        <p:growl id="growlParto" globalOnly="true" showDetail="true" life="5000"
+                 autoUpdate="true" />
+        <p:dataTable id="partos" var="parto" emptyMessage="Nenhum Registro Encontrado!"
+                     value="#{animalBean.animal.partoList}" paginator="true" rows="10"
+                     selection="#{animalBean.partoSelecionado}"
+                     selectionMode="single" paginatorPosition="bottom" 
+                     rowKey="#{parto.id}">
+
+            <p:column headerText="Id" style="text-align: center">  
+                #{parto.id}  
+            </p:column>
+
+            <p:column headerText="Ordem" style="text-align: center">  
+                #{parto.ordem}  
+            </p:column>
+
+            <p:column headerText="Data do Parto" style="text-align: center">  
+                <h:outputText value="#{parto.dataParto}">
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                </h:outputText>
+            </p:column>
+
+            <p:column headerText="Inicio da Produção" style="text-align: center">   
+                <h:outputText value="#{parto.inicioProducao}">
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                </h:outputText>
+            </p:column>
+
+            <p:column headerText="Fim da Produção" style="text-align: center">  
+                <h:outputText value="#{parto.fimProducao}">
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                </h:outputText>
+            </p:column>
+
+            <f:facet name="footer">
+                <p:commandButton value="Novo Parto" icon="imagemAdicionar" update="@form" action="#{animalBean.prepararNovoParto}"/> | 
+                <p:commandButton value="Editar Parto" action="#{animalBean.preparaAlterarParto}" icon="imagemEditar"/> |
+                <p:commandButton value="Deletar parto" oncomplete="PF('confirmationParto').show()" icon="imagemExcluir"/> 
+            </f:facet>
+        </p:dataTable>
+
+        <div>
+            <p:confirmDialog message="Excluir?" width="200"
+                             header="Confirme!" severity="alert" widgetVar="confirmationParto">
+                <p:commandButton value="Sim" icon="fa fa-fw fa-check"
+                                 update="growlParto" ajax="false" action="#{animalBean.excluirParto}"
+                                 oncomplete="PF('confirmationParto').hide()" />
+                <p:commandButton value="Não" icon="fa fa-fw fa-times"
+                                 onclick="PF('confirmationParto').hide()" type="button" />
+            </p:confirmDialog>
+        </div>
+
+        <p:blockUI block="partos" trigger="partos">  
+            CARREGANDO<br />  
+            <p:graphicImage value="../../img/ajax-loader.gif"/>  
+        </p:blockUI>  
+    </h:form>
+</html>

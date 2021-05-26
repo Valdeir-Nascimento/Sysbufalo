@@ -1,0 +1,13 @@
+<h:form xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui" prependId="false">
+
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputText value="Peso:"/>
+            <p:spinner value="#{animalBean.pesoSelecionado.peso}" min="0" />
+        </h:panelGrid>
+    </h:form>
+</h:form>

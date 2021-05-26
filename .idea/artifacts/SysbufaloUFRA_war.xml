@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SysbufaloUFRA:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>SysbufaloUFRA</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="SysbufaloUFRA-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="SysbufaloUFRA:war exploded" />
+    </root>
+  </artifact>
+</component>

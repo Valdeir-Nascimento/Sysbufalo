@@ -1,0 +1,196 @@
+#header {
+	background-image: url(/busstopweb/img/);
+	background-position: left top;
+	background-repeat: repeat-x;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	padding-bottom: 10px;
+	width: 100%;
+	padding: 0px 0px 0px 0px;
+}
+
+#logo {
+	/* width: 100%;
+	height: 110px;
+	padding: 0px 0px 0px 0px;
+	padding-bottom: 10px;
+	background-image: url(img/icone_predio2.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-size:132px 132px;  */
+}
+
+body {
+	background-image: url(/SysbufaloUFRA/img/gplaypattern.png);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	padding: 0px 0px 0px 0px;
+	background-color:#999999;
+}
+
+.bottom {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	text-align: center;
+	vertical-align: middle;
+	color: #8E969D;
+	padding: 0px 0px 0px 0px;
+}
+.imagemConstrutora{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/page.png)!important;
+}
+.imagemUser{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/user.png)!important;
+}
+.imagemChave{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/key.png)!important;
+}
+.imagemSair{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/door_in.png)!important;
+}
+.imagemHome{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/house.png)!important;
+}
+.imagemEmpreendimento{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/page.png)!important;
+}
+.imagemNovo{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/page.png)!important;
+}
+.imagemAdicionar{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/adicionar.png)!important;
+}
+.imagemSalvar{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/disk.png)!important;
+}
+.imagemVoltar{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/arrow_left.png)!important;
+}
+.imagemEditar{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/page_edit.png)!important;
+}
+.imagemExcluir{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/lixeira.png)!important;
+}
+.imagemDeletar{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/delete.png)!important;
+}
+.imagemBtnSalvar{ 
+	width: 78px; 
+	height: 31px; 
+	background-image: url(/SysbufaloUFRA/img/salvar2.png)!important;
+}
+.ui-icon-calendar {
+    background-image: url(/SysbufaloUFRA/img/calendar.png) !important;
+    background-position: center center !important;
+    width: 16px;
+    height: 16px;
+}
+.imagemCadeado{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/lock.png)!important;
+}
+.imagemPlanodeVendas{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/money.png)!important;
+}
+.imagemObservacao{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/comment.png)!important;
+}
+.imagemReajuste{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/coins.png)!important;
+}
+.imagemParcela{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/text_list_numbers.png)!important;
+}
+.imagemCadastroBasico{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/page_code.png)!important;
+}
+.imagemItemCadastroBasico{ 
+	width: 16px; 
+	height: 16px; 
+	background-image: url(/SysbufaloUFRA/img/page.png)!important;
+}
+.imagemUFRA{ 
+	width: 200px; 
+	height: 165px; 
+	background-image: url(/SysbufaloUFRA/img/ufra.png)!important;
+        margin-top: -40px;
+} 
+.imagemRelatorioGrafico{ 
+        width: 16px; 
+	height: 16px;
+	background-image: url(/SysbufaloUFRA/img/chart_curve.png)!important;
+} 
+.imagemImpressora{  
+        width: 16px; 
+	height: 16px;
+	background-image: url(/SysbufaloUFRA/img/printer.png)!important;
+}
+.imagemTux{ 
+	width: 16px; 
+	height: 16px;
+	background-image: url(/SysbufaloUFRA/img/tux.png)!important;
+}
+
+
+.imagemFazenda{ 
+	width: 16px; 
+	height: 16px;
+	background-image: url(/SysbufaloUFRA/img/fazenda.png)!important;
+}
+
+.imagemUsuarios{ 
+	width: 16px; 
+	height: 16px;
+	background-image: url(/SysbufaloUFRA/img/users.png)!important;
+}
+
+
+
+.imagemApagarUsuario{ 
+	width: 16px; 
+	height: 16px;
+	background-image: url(/SysbufaloUFRA/img/apagar_usuario.png)!important;
+}
+
+
+/*
+
+*/

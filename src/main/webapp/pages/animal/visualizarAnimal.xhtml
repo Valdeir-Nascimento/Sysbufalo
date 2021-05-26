@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    
+    <ui:composition template="../../template.xhtml">
+        <ui:define name="pageTitle">Visualizar Animal</ui:define>
+        <ui:define name="pageHeader"></ui:define>
+        <h:body>
+            <link href="../estilos.css" rel="stylesheet" type="text/css" />
+            <div id="header">
+                <div id="logo"></div>
+            </div>
+        </h:body>
+        <ui:define name="body">
+            <h:form>
+                <p:growl id="growl2" showDetail="true" life="5000" autoUpdate="true" />
+                <p:panel>
+                    <f:facet name="header">Visualizar Animal</f:facet>
+                    <h:panelGrid columns="2">
+
+                        <h:outputLabel value="Identificação do Animal:" />
+                        <h:outputLabel value="#{animalBean.animal.brinco}"/>
+
+                    </h:panelGrid>
+                    <f:facet name="footer">
+                        <p:commandButton value="Listar Todas" immediate="true" action="visualizarFazenda" icon="imagemVoltar"/> |
+                        <p:commandButton value="Editar Animal" action="#{animalBean.preparaAlterarAnimal}" icon="imagemEditar" /> |
+                        <p:commandButton value="Deletar Animal" oncomplete="PF('confirmation').show()" icon="imagemExcluir"/> 
+                    </f:facet>
+                </p:panel>
+                <br />
+
+                <div>
+                    <p:confirmDialog message="Excluir?" width="200"
+                                     header="Confirme!" severity="alert" widgetVar="confirmation">
+                        <p:commandButton value="Sim" icon="fa fa-fw fa-check"
+                                         update="growl" ajax="false" action="#{animalBean.excluir}"
+                                         oncomplete="PF('confirmation').hide()" />
+                        <p:commandButton value="Não" icon="fa fa-fw fa-times"
+                                         onclick="PF('confirmation').hide()" type="button" />
+                    </p:confirmDialog>
+                </div>  
+            </h:form>
+
+            <p:panel header="Partos" toggleable="true">
+                <ui:include src="/pages/parto/listarPartos.xhtml" />
+            </p:panel>
+            <br />
+
+            <p:panel header="Peso" toggleable="true">
+                <ui:include src="/pages/peso/listarPeso.xhtml" />
+            </p:panel>
+            <br />
+
+            <p:panel header="Ordenha" toggleable="true">
+                <ui:include src="/pages/ordenha/listarOrdenha.xhtml" />
+            </p:panel>
+
+        </ui:define>
+    </ui:composition>
+
+</html>

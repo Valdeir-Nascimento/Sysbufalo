@@ -1,0 +1,52 @@
+<h:form xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui" prependId="false">
+
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Nome: *" />
+            <p:inputText value="#{fazendaBean.fazenda.nome}" maxlength="45"
+                         style="width:300px" required="true" onkeyup="this.value = this.value.toUpperCase();"
+                         requiredMessage="Campo Nome Obrigatorio." />
+
+            <h:outputLabel value="Cidade: " />
+            <p:inputText value="#{fazendaBean.fazenda.cidade}" maxlength="100"
+                         style="width:300px" />
+
+            <h:outputText value="Estado: " />
+            <p:selectOneMenu value="#{fazendaBean.fazenda.estado}">
+                <f:selectItem itemLabel="Selecione o Estado" />
+                <f:selectItem itemValue="Acre" itemLabel="Acre" />
+                <f:selectItem itemValue="Alagoas" itemLabel="Alagoas" />
+                <f:selectItem itemValue="Amapá" itemLabel="Amapá" />
+                <f:selectItem itemValue="Amazonas" itemLabel="Amazonas" />
+                <f:selectItem itemValue="Bahia" itemLabel="Bahia" />
+                <f:selectItem itemValue="Ceará" itemLabel="Ceará" />
+                <f:selectItem itemValue="Distrito Federal" itemLabel="Distrito Federal" />
+                <f:selectItem itemValue="Espírito Santo" itemLabel="Espírito Santo" />
+                <f:selectItem itemValue="Goiás" itemLabel="Goiás" />
+                <f:selectItem itemValue="Maranhão" itemLabel="Maranhão" />
+                <f:selectItem itemValue="Mato Grosso" itemLabel="Mato Grosso" />
+                <f:selectItem itemValue="Mato Grosso do Sul" itemLabel="Mato Grosso do Sul" />
+                <f:selectItem itemValue="Minas Gerais" itemLabel="Minas Gerais" />
+                <f:selectItem itemValue="Pará" itemLabel="Pará" />
+                <f:selectItem itemValue="Paraíba" itemLabel="Paraíba" />
+                <f:selectItem itemValue="Paraná" itemLabel="Paraná" />
+                <f:selectItem itemValue="Pernambuco" itemLabel="Pernambuco" />
+                <f:selectItem itemValue="Piauí" itemLabel="Piauí" />
+                <f:selectItem itemValue="Rio de Janeiro" itemLabel="Rio de Janeiro" />
+                <f:selectItem itemValue="Rio Grande do Norte" itemLabel="Rio Grande do Norte" />
+                <f:selectItem itemValue="Rio Grande do Sul" itemLabel="Rio Grande do Sul" />
+                <f:selectItem itemValue="Rondônia" itemLabel="Rondônia" />
+                <f:selectItem itemValue="Roraima" itemLabel="Roraima" />
+                <f:selectItem itemValue="Santa Catarina" itemLabel="Santa Catarina" />
+                <f:selectItem itemValue="São Paulo" itemLabel="São Paulo" />
+                <f:selectItem itemValue="Sergipe" itemLabel="Sergipe" />
+                <f:selectItem itemValue="Tocantins" itemLabel="Tocantins" />
+            </p:selectOneMenu>
+
+        </h:panelGrid>
+    </h:form>
+</h:form>

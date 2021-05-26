@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="../template.xhtml">
+        <ui:define name="pageTitle">SysBufaloUFRA</ui:define>
+        <ui:define name="pageHeader">
+            <style type="text/css">
+                .ui-panel, div.ui-state-hover {
+                    margin: 10px;
+                    width:200px;
+                }
+
+                .ui-dashboard-column {
+                    width:220px;
+                }
+            </style>
+        </ui:define>
+        <ui:define name="body">
+            <h:form id="Form" style="">
+
+                <p:growl id="growl" showDetail="true" />
+
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    
+    <ui:composition template="../../template.xhtml">
+        <ui:define name="pageTitle">Visualizar Fazenda</ui:define>
+        <ui:define name="pageHeader"></ui:define>
+        <h:body>
+            <link href="../estilos.css" rel="stylesheet" type="text/css" />
+            <div id="header">
+                <div id="logo"></div>
+            </div>
+        </h:body>
+        <ui:define name="body">
+            <h:form id="Editar">
+                <p:growl id="growl2" showDetail="true" life="5000" autoUpdate="true" />
+                <p:panel>
+                    <f:facet name="header">Visualizar Fazenda</f:facet>
+                    <h:panelGrid columns="2">
+
+                        <h:outputLabel value="Nome:" />
+                        <h:outputLabel value="#{fazendaBean.fazenda.nome}"/>
+
+                        <h:outputLabel value="Cidade:" />
+                        <h:outputLabel value="#{fazendaBean.fazenda.cidade}"/>
+
+                        <h:outputLabel value="Estado:" />
+                        <h:outputLabel value="#{fazendaBean.fazenda.estado}"/>
+
+                    </h:panelGrid>
+                    <f:facet name="footer">
+                        <p:commandButton value="Listar Todas" immediate="true" action="listarFazenda?faces-redirect=true" icon="imagemVoltar"/> |
+                        <p:commandButton value="Editar Fazenda" action="#{fazendaBean.preparaAlterarFazenda}" icon="imagemEditar" /> |
+                        <p:commandButton value="Deletar Fazenda" oncomplete="PF('confirmation').show()" icon="imagemExcluir"/>
+                    </f:facet>
+                </p:panel>
+                <br />
+
+                <div>
+                    <p:confirmDialog message="Excluir?" width="200"
+                                     header="Confirme!" severity="alert" widgetVar="confirmation">
+                        <p:commandButton value="Sim" icon="fa fa-fw fa-check"
+                                         update="growl" ajax="false" action="#{fazendaBean.excluir}"
+                                         oncomplete="PF('confirmation').hide()" />
+                        <p:commandButton value="Não" icon="fa fa-fw fa-times"
+                                         onclick="PF('confirmation').hide()" type="button" />
+                    </p:confirmDialog>
+                </div>
+
+                <p:panel header="Animais" toggleable="true">
+                    <ui:include src="/pages/animal/listarAnimal.xhtml" />
+                </p:panel>
+
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

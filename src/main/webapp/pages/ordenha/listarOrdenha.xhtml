@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:form prependId="false">
+        <p:dataTable id="ordenhas" var="ordenha" emptyMessage="Nenhum Registro Encontrado!"
+                     value="#{animalBean.animal.ordenhaList}" paginator="true" rows="10"
+                     selection="#{animalBean.ordenhaSelecionado}"
+                     selectionMode="single" paginatorPosition="bottom" 
+                     rowKey="#{ordenha.id}">
+
+            <p:column headerText="Id" style="text-align: center">  
+                #{ordenha.id}  
+            </p:column>
+
+            <p:column headerText="Ordenhador" style="text-align: center">  
+                #{ordenha.ordenhador.nome}
+            </p:column>
+
+            <p:column headerText="Data do Ordenha" style="text-align: center">  
+                <h:outputText value="#{ordenha.data}">
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                </h:outputText>
+            </p:column>
+
+            <p:column headerText="Manual" style="text-align: center">  
+                <h:outputText value="#{ordenha.manual == true ? 'SIM' : 'NÃO'}" />
+            </p:column>
+
+            <p:column headerText="Quantidade Produzida" style="text-align: center">   
+                #{ordenha.quantidadeProduzida}
+            </p:column>
+
+            <f:facet name="footer">
+                <p:commandButton value="Nova Ordenha" icon="imagemAdicionar" update="@form" action="#{animalBean.prepararNovoOrdenha}"/> | 
+                <p:commandButton value="Editar Ordenha" action="#{animalBean.preparaAlterarOrdenha}" icon="imagemEditar"/> |
+                <p:commandButton value="Deletar Ordenha" oncomplete="PF('confirmationOrdenha').show()" icon="imagemExcluir"/> |
+                <p:commandButton value="Gerar Relatório" ajax="false" action="#{animalBean.gerarRelatorio()}" onclick="this.form.target = '_blank';" icon="imagemImpressora"/>
+            </f:facet>
+        </p:dataTable>
+
+        <div>
+            <p:confirmDialog message="Excluir?" width="200"
+                             header="Confirme!" severity="alert" widgetVar="confirmationOrdenha">
+                <p:commandButton value="Sim" icon="ui-icon ui-icon-circle-check"
+                                 update="@form" ajax="false" action="#{animalBean.excluirOrdenha}"
+                                 oncomplete="PF('confirmationOrdenha').hide()" />
+                <p:commandButton value="Não" icon="ui-icon ui-icon-circle-minus"
+                                 onclick="PF('confirmationOrdenha').hide()" type="button" />
+            </p:confirmDialog>
+        </div>
+
+        <p:blockUI block="ordenhas" trigger="ordenhas">  
+            CARREGANDO<br />  
+            <p:graphicImage value="../../img/ajax-loader.gif"/>  
+        </p:blockUI>  
+    </h:form>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title><ui:insert name="pageTitle">Page Title</ui:insert></title>
+        <script type="text/javascript">
+            PrimeFaces.locales['pt'] = {
+                closeText: 'Fechar',
+                prevText: 'Anterior',
+                nextText: 'Próximo',
+                currentText: 'Começo',
+                monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio',
+                    'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro',
+                    'Novembro', 'Dezembro'],
+                monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+                    'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Des'],
+                dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta',
+                    'Sexta', 'Sábado'],
+                dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+                dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+                weekHeader: 'Semana',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: '',
+                timeOnlyTitle: 'Só Horas',
+                timeText: 'Tempo',
+                hourText: 'Hora',
+                minuteText: 'Minuto',
+                secondText: 'Segundo',
+                currentText: 'Data Atual',
+                ampm: false,
+                month: 'Mês',
+                week: 'Semana',
+                day: 'Dia',
+                allDayText: 'Todo Dia'
+            };
+
+        </script>
+        <style type="text/css">
+            body {
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-size: 10px;
+                background-color: #E7E1D3;
+            }
+
+            .header {
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-size: 12px;
+            }
+
+            .bottom {
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-size: 9px;
+                text-align: center;
+                vertical-align: middle;
+                color: #8E969D;
+            }
+            @media screen{
+                body>div#footer{
+                    position: fixed;
+                }
+            }
+            * html body{
+                overflow:hidden;
+            } 
+            * html div#content{
+                height:100%;
+                overflow:auto;
+            }
+            div#footer{
+                position:absolute;
+                bottom:0;
+                left:25%;
+                width:100%;
+                height:footer-50px;
+                min-height: 8%;
+
+            }
+
+        </style>
+    </h:head>
+
+    <h:body>
+        <link href="/SysbufaloUFRA/estilos.css" rel="stylesheet" type="text/css" />
+
+       
+        <div class="">
+            <div id="logo" class="imagemUFRA">
+                <p></p>
+            </div>
+        </div>
+        <div>
+            <h:form>
+
+                <p:panel style="background: url(../img/transparencia.png); border:none;" >
+
+                    <p:menubar autoDisplay="false">  
+                        <p:menuitem value="Início" immediate="true" url="/pages/index.jsf" icon="imagemHome"/>
+                        <p:menuitem value="Fazenda" url="/pages/fazenda/listarFazenda.jsf" icon="imagemFazenda"/>
+                        <p:menuitem value="Usuários" url="/pages/usuario/listarUsuario.jsf" icon="imagemUsuarios" />
+                        <p:submenu label="Bem-Vindo, #{usuarioBean.usuarioVerificado.nome}" style="position: absolute; right: 4px;" icon="imagemTux">
+                            <p:menuitem value="Sair do Sistema" action="#{usuarioBean.Sair}" icon="imagemSair"/>
+                        </p:submenu>
+                    </p:menubar>
+                </p:panel>
+
+            </h:form>
+        </div>
+        <div>  
+            <ui:insert name="body">
+            </ui:insert>
+        </div>
+
+    </h:body>
+
+
+</html>

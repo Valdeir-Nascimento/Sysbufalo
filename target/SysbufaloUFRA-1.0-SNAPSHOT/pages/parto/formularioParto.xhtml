@@ -1,0 +1,22 @@
+<h:form xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui" prependId="false">
+
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputText value="Ordem de Parto: "/>
+            <p:spinner value="#{animalBean.partoSelecionado.ordem}" min="0"/>
+
+            <h:outputText value="Data do Parto:"/>
+            <p:calendar value="#{animalBean.partoSelecionado.dataParto}" showOn="button" />
+
+            <h:outputText value="Início da Produção:"/>
+            <p:calendar value="#{animalBean.partoSelecionado.inicioProducao}" showOn="button" />
+
+            <h:outputText value="Fim da Produção:"/>
+            <p:calendar value="#{animalBean.partoSelecionado.fimProducao}" showOn="button" />
+        </h:panelGrid>
+    </h:form>
+</h:form>

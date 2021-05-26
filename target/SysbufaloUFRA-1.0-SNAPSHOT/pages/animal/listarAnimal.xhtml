@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="Form" prependId="false">
+        <p:growl id="growl" globalOnly="true" showDetail="true" life="5000"
+                 autoUpdate="true" />
+        <p:dataTable id="animais" var="animal" emptyMessage="Nenhum Registro Encontrado!"
+                     value="#{animalBean.animais}" paginator="true" rows="10"
+                     selection="#{animalBean.animalSelecionado}"
+                     selectionMode="single" paginatorPosition="bottom" 
+                     rowKey="#{animal.id}">
+
+            <p:ajax event="rowSelect"  
+                    listener="#{animalBean.preparaVisualizarAnimal}" />
+
+            <p:column 
+                headerText="Id"
+                style="text-align: center">  
+                #{animal.id}  
+            </p:column>
+
+            <p:column headerText="Identificação do Animal" style="text-align: center"
+                      filterBy="#{animal.brinco}">  
+                #{animal.brinco}  
+            </p:column>
+
+            <f:facet name="footer">
+                <p:commandButton value="Novo Animal" 
+                                 icon="imagemAdicionar"  
+                                 update="@form" action="#{animalBean.preparaNovoAnimal}"
+                                 />  
+            </f:facet>
+        </p:dataTable>
+        <p:blockUI block="animais" trigger="animais">  
+            CARREGANDO<br />  
+            <p:graphicImage value="../../img/ajax-loader.gif"/>  
+        </p:blockUI>  
+    </h:form>
+</html>

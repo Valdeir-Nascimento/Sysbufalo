@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="../../template.xhtml">
+        <ui:define name="pageTitle">Lista de Fazendas</ui:define>
+        <ui:define name="pageHeader"></ui:define>
+        <h:body>
+            <link href="../estilos.css" rel="stylesheet" type="text/css" />
+            <div id="header">
+                <div id="logo"></div>
+            </div>
+        </h:body>
+
+        <ui:define name="body">
+            <f:view>
+                <h:form id="Form" prependId="false">
+                    <p:growl id="growl" globalOnly="true" showDetail="true" life="5000"
+                             autoUpdate="true" />
+                    <p:dataTable id="fazendas" var="fazenda" emptyMessage="Nenhum Registro Encontrado!"
+                                 value="#{fazendaBean.fazendas}" paginator="true" rows="10"
+                                 selection="#{fazendaBean.fazendaSelecionada}"
+                                 selectionMode="single" paginatorPosition="bottom" 
+                                 rowKey="#{fazenda.id}">
+
+                        <p:ajax event="rowSelect"  
+                                listener="#{fazendaBean.preparaVisualizarFazenda}" />
+
+                        <f:facet name="header">  
+                            LISTA DE FAZENDAS 
+                        </f:facet>
+
+                        <p:column headerText="Id" style="text-align: center">  
+                            #{fazenda.id}  
+                        </p:column>
+
+                        <p:column headerText="Nome da Fazenda" style="text-align: center"
+                                  filterBy="#{fazenda.nome}">  
+                            #{fazenda.nome}  
+                        </p:column>
+
+                        <p:column headerText="Cidade" style="text-align: center">  
+                            #{fazenda.cidade}
+                        </p:column>
+                        
+                        <p:column headerText="Estado" style="text-align: center">  
+                            #{fazenda.estado}
+                        </p:column>
+
+                        <f:facet name="footer">
+                            <p:commandButton value="Nova Fazenda" icon="imagemAdicionar" rendered="#{fazendaBean.habilitarNovaFazenda}"  
+                                             update="@form" action="#{fazendaBean.preparaNovoFazenda}"/>  
+                        </f:facet>
+                    </p:dataTable>
+                    <p:blockUI block="fazendas" trigger="fazendas">  
+                        CARREGANDO<br />  
+                        <p:graphicImage value="../../img/ajax-loader.gif"/>  
+                    </p:blockUI>  
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+
+</html>

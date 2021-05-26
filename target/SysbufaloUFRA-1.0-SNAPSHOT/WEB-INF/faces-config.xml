@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>index</from-outcome>
+                <to-view-id>/pages/index.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>login</from-outcome>
+                <to-view-id>/login.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- ############################### FAZENDA -->
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>novoFazenda</from-outcome>
+                <to-view-id>/pages/fazenda/novoFazenda.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>editarFazenda</from-outcome>
+                <to-view-id>/pages/fazenda/editarFazenda.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>listarFazenda</from-outcome>
+                <to-view-id>/pages/fazenda/listarFazenda.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>visualizarFazenda</from-outcome>
+                <to-view-id>/pages/fazenda/visualizarFazenda.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- ############################### ANIMAL -->
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>novoAnimal</from-outcome>
+                <to-view-id>/pages/animal/novoAnimal.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>editarAnimal</from-outcome>
+                <to-view-id>/pages/animal/editarAnimal.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>listarAnimal</from-outcome>
+                <to-view-id>/pages/animal/listarAnimal.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>visualizarAnimal</from-outcome>
+                <to-view-id>/pages/animal/visualizarAnimal.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- ############################### PESO -->
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>novoPeso</from-outcome>
+                <to-view-id>/pages/peso/novoPeso.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>listarPeso</from-outcome>
+                <to-view-id>/pages/peso/listarPeso.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- ############################### PARTO -->
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>novoParto</from-outcome>
+                <to-view-id>/pages/parto/novoParto.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>editarParto</from-outcome>
+                <to-view-id>/pages/parto/editarParto.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>listarParto</from-outcome>
+                <to-view-id>/pages/parto/listarParto.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- ############################### ORDENHA -->
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>novoOrdenha</from-outcome>
+                <to-view-id>/pages/ordenha/novoOrdenha.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>editarOrdenha</from-outcome>
+                <to-view-id>/pages/ordenha/editarOrdenha.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>listarOrdenha</from-outcome>
+                <to-view-id>/pages/ordenha/listarOrdenha.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>visualizarOrdenha</from-outcome>
+                <to-view-id>/pages/ordenha/visualizarOrdenha.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- ############################### ORDENHA -->
+    
+     <navigation-rule>
+        <navigation-case>
+                <from-outcome>novoUsuario</from-outcome>
+                <to-view-id>/pages/usuario/novoUsuario.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>editarUsuario</from-outcome>
+                <to-view-id>/pages/usuario/editarUsuario.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
+                <from-outcome>listarUsuario</from-outcome>
+                <to-view-id>/pages/usuario/listarUsuario.xhtml</to-view-id>
+                <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    
+</faces-config>

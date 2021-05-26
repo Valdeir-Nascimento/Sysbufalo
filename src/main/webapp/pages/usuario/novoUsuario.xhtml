@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+  
+    <ui:composition template="../../template.xhtml">
+        <ui:define name="pageTitle">Novo Usuário</ui:define>
+        <ui:define name="pageHeader"></ui:define>
+        <h:body>
+            <link href="../estilos.css" rel="stylesheet" type="text/css" />
+            <div id="header">
+                <div id="logo">
+                </div>
+            </div>
+        </h:body>
+        <ui:define name="body">
+            <h:form id="Novo">
+                <p:growl id="growl" showDetail="true" life="5000" autoUpdate="true"/>  
+                <p:panel id="pnl"> 
+                    <f:facet name="header">Novo Usuário</f:facet>
+                    <ui:include src="/pages/usuario/formularioUsuario.xhtml" />
+                    <f:facet name="footer"> 
+                        <p:commandButton value="Voltar" immediate="true" action="listarUsuario" icon="imagemVoltar"/> |
+                        <p:commandButton value="Salvar" id="saveBtn" update="growl Novo" icon="imagemSalvar" action="#{usuarioBean.salvar()}"/>	
+                    </f:facet>
+                </p:panel>
+                <p:blockUI block="pnl" trigger="saveBtn" />  
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

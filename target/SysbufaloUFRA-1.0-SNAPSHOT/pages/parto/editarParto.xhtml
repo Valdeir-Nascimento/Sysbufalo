@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <!-- 
+            Replace path to template, title, header and body
+            with actual data.
+    -->
+    <ui:composition template="../../template.xhtml">
+        <ui:define name="pageTitle">Editar Parto</ui:define>
+        <ui:define name="pageHeader"></ui:define>
+        <h:body>
+            <link href="../../estilos.css" rel="stylesheet" type="text/css" />
+            <div id="header">
+                <div id="logo">
+                </div>
+            </div>
+        </h:body>
+        <ui:define name="body">
+            <h:form id="Editar">
+                <p:growl id="growl" showDetail="true" life="5000" autoUpdate="true"/>  
+                <p:panel id="pnl">
+                    <f:facet name="header">Editar Parto</f:facet>
+                    <ui:include src="/pages/parto/formularioParto.xhtml" />
+                    <f:facet name="footer">
+                        <p:commandButton value="Cancelar" action="visualizarAnimal" immediate="true" icon="imagemVoltar"/> |
+                        <p:commandButton value="Salvar Alterações" id="saveBtn" update="growl Editar" action="#{animalBean.cadastrarParto()}" icon="imagemSalvar"/>
+                    </f:facet>
+                </p:panel>
+                <p:blockUI block="pnl" trigger="saveBtn" /> 
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
